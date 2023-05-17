@@ -12,18 +12,20 @@
 	<script src="https://kit.fontawesome.com/c54e92dc23.js" crossorigin="anonymous"></script>
 	<meta name="description" content="">
 	<script type="module" src="./assets/script.js"></script>
-	<script type="module" src="./assets/sinIn.js"></script>
 	<link rel="stylesheet" href="./assets/style.css">
 </head>
 
 <body>
+	<nav id="edition"><div><i class="fa-regular fa-pen-to-square"></i>Mode édition</div>
+		<div class="publiez">publiez les changements</div></nav>
+	<div class="content" style="padding: 0 4rem 0 4rem;">
 	<header>
 		<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
 		<nav>
 			<ul>
-				<li>projets</li>
-				<li>contact</li>
-				<li><a href="login.html">login</a></li>
+				<li><a href="index.html">projet</a></li>
+				<li><a href="#contact">contact</a></li>
+				<li><a href="login.html" class="login">login</a></li>
 				<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
 			</ul>
 		</nav>
@@ -33,11 +35,11 @@
 			<figure>
 				<img src="./assets/images/sophie-bluel.png" alt="">
 				<figcaption>
-					<div id=""><i class="fa-regular fa-pen-to-square"></i>modifier</div>
+					<div class="hidden"><i class="fa-regular fa-pen-to-square"></i>modifier</div>
 				</figcaption>
 			</figure>
 			<article>
-				<div id=""><i class="fa-regular fa-pen-to-square"></i>modifier</div>
+				<div id="" class="hidden"><i class="fa-regular fa-pen-to-square"></i>modifier</div>
 				<h2>Designer d'espace</h2>
 				<p>Je raconte votre histoire, je valorise vos idées. Je vous accompagne de la conception à la livraison
 					finale du chantier.</p>
@@ -51,41 +53,22 @@
 		
 		<section id="portfolio">
 			<div class="titre">
-				<h2>Mes Projets</h2><div id="myBtn" class="btn"><i class="fa-regular fa-pen-to-square"></i>modifier</div>
+				<h2>Mes Projets</h2><div id="myBtn" class="hidden"><i class="fa-regular fa-pen-to-square"></i>modifier</div>
 		<div id="myModal" class="modal">
 		  <div class="modal-content">
-			<span class="close">&times;</span>
-			<h2>Gallerie photo</h2>
+			<div class="content-modal">
+				<nav>
+					<span class="close">&times;</span>
+					<h2>Gallerie photo</h2>
+				</nav>
+					<div class="corps-modal"></div>
+					<div class="btn-modal">
+						<button class="ajoutphoto">Ajouter photo</button>
+						<button class="sup-gallerie">Supprimer la gallerie</button>
+					</div>
+			</div>
 		  </div>
-		
 		</div>
-		<script>
-			// Get the modal
-			var modal = document.getElementById("myModal");
-			
-			// Get the button that opens the modal
-			var btn = document.getElementById("myBtn");
-			
-			// Get the <span> element that closes the modal
-			var span = document.getElementsByClassName("close")[0];
-			
-			// When the user clicks the button, open the modal 
-			btn.onclick = function() {
-			  modal.style.display = "block";
-			}
-			
-			// When the user clicks on <span> (x), close the modal
-			span.onclick = function() {
-			  modal.style.display = "none";
-			}
-			
-			// When the user clicks anywhere outside of the modal, close it
-			window.onclick = function(event) {
-			  if (event.target == modal) {
-				modal.style.display = "none";
-			  }
-			}
-			</script>
 			</div>
 			<div class="btn">
 				<button class="tous">Tout</button>
@@ -123,6 +106,7 @@
 			</ul>
 		</nav>
 	</footer>
+</div>
 </body>
 
 </html>
