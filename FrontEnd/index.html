@@ -16,97 +16,127 @@
 </head>
 
 <body>
-	<nav id="edition"><div><i class="fa-regular fa-pen-to-square"></i>Mode édition</div>
-		<div class="publiez">publiez les changements</div></nav>
+	<nav id="edition">
+		<div><i class="fa-regular fa-pen-to-square"></i>Mode édition</div>
+		<div class="publiez">publiez les changements</div>
+	</nav>
 	<div class="content" style="padding: 0 4rem 0 4rem;">
-	<header>
-		<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
-		<nav>
-			<ul>
-				<li><a href="index.html">projet</a></li>
-				<li><a href="#contact">contact</a></li>
-				<li><a href="login.html" class="login">login</a></li>
-				<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
-			</ul>
-		</nav>
-	</header>
-	<main>
-		<section id="introduction">
-			<figure>
-				<img src="./assets/images/sophie-bluel.png" alt="">
-				<figcaption>
-					<div class="hidden"><i class="fa-regular fa-pen-to-square"></i>modifier</div>
-				</figcaption>
-			</figure>
-			<article>
-				<div id="" class="hidden"><i class="fa-regular fa-pen-to-square"></i>modifier</div>
-				<h2>Designer d'espace</h2>
-				<p>Je raconte votre histoire, je valorise vos idées. Je vous accompagne de la conception à la livraison
-					finale du chantier.</p>
-				<p>Chaque projet sera étudié en commun, de façon à mettre en valeur les volumes, les matières et les
-					couleurs dans le respect de l’esprit des lieux et le choix adapté des matériaux. Le suivi du
-					chantier sera assuré dans le souci du détail, le respect du planning et du budget.</p>
-				<p>En cas de besoin, une équipe pluridisciplinaire peut-être constituée : architecte DPLG,
-					décorateur(trice)</p>
-			</article>
-		</section>
-		
-		<section id="portfolio">
-			<div class="titre">
-				<h2>Mes Projets</h2><div id="myBtn" class="hidden"><i class="fa-regular fa-pen-to-square"></i>modifier</div>
-		<div id="myModal" class="modal">
-		  <div class="modal-content">
-			<div class="content-modal">
-				<nav>
-					<span class="close">&times;</span>
-					<h2>Gallerie photo</h2>
-				</nav>
-					<div class="corps-modal"></div>
-					<div class="btn-modal">
-						<button class="ajoutphoto">Ajouter photo</button>
-						<button class="sup-gallerie">Supprimer la gallerie</button>
+		<header>
+			<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
+			<nav>
+				<ul>
+					<li><a href="index.html">projet</a></li>
+					<li><a href="#contact">contact</a></li>
+					<li class="login"> login</li>
+					<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
+				</ul>
+			</nav>
+		</header>
+		<main>
+			<section id="introduction">
+				<figure>
+					<img src="./assets/images/sophie-bluel.png" alt="">
+					<figcaption>
+						<div id="btn_modif1" class="hidden"><i class="fa-regular fa-pen-to-square"></i>modifier</div>
+					</figcaption>
+				</figure>
+				<article>
+					<div id="btn_modif2" class="hidden"><i class="fa-regular fa-pen-to-square"></i>modifier</div>
+					<h2>Designer d'espace</h2>
+					<p>Je raconte votre histoire, je valorise vos idées. Je vous accompagne de la conception à la
+						livraison
+						finale du chantier.</p>
+					<p>Chaque projet sera étudié en commun, de façon à mettre en valeur les volumes, les matières et les
+						couleurs dans le respect de l’esprit des lieux et le choix adapté des matériaux. Le suivi du
+						chantier sera assuré dans le souci du détail, le respect du planning et du budget.</p>
+					<p>En cas de besoin, une équipe pluridisciplinaire peut-être constituée : architecte DPLG,
+						décorateur(trice)</p>
+				</article>
+			</section>
+
+			<section id="portfolio">
+				<div class="titre">
+					<h2>Mes Projets</h2>
+					<div id="myBtn" class="hidden"><i class="fa-regular fa-pen-to-square"></i>modifier</div>
+					<div id="myModal" class="modal">
+						<div class="modal-content">
+							<div class="content-modal">
+								<nav>
+									<span class="close">&times;</span>
+									<i class="fa-sharp fa-solid fa-arrow-left"></i>
+								</nav>
+								<h2 class="titre_modal">Gallerie photo</h2>
+								<form class="contenu_ajout_photo" method="post" enctype="multipart/form-data">
+									<div class="zone-image">
+										<i class="fa-sharp fa-regular fa-image"></i>
+										<label for="photo-aff">+Ajouter photo</label>
+										<input type="file"  id="photo-aff"><br>
+										<img src="" height="200" id="visuel" alt="Prévisualisation de l'image…">
+										<p>jpg, png : 4mo max</p>
+									</div>
+									<label for="">Titre</label>
+									<input type="text" class="titre-categorie" id="titre" placeholder=". ">
+									<label for="categorie">Categorie</label>
+									<select  id="categorie" class="titre-categorie" >
+										<option value=""></option>
+										<option value="1">Objet</option>
+										<option value="2">Appartements</option>
+										<option value="3">Hotel et Restaurant</option>
+									</select>
+									<div class="ligne"></div>
+									<button class="valider_photo">Valider</button>
+								</form>
+								<script>
+								
+								</script>
+								<div class="corps-modal"></div>
+								<div class="btn-modal">
+									<button class="ajoutphoto">Ajouter photo</button>
+									<button class="sup-gallerie">Supprimer la gallerie</button>
+								</div>
+							</div>
+						</div>
 					</div>
-			</div>
-		  </div>
-		</div>
-			</div>
-			<div class="btn">
-				<button class="tous">Tout</button>
-				<button class="objets">Objets</button>
-				<button class="appart">Appartements</button>
-				<button class="hotel">Hotels & Restaurants</button>
-			</div><br>
-			<div class="gallery">
+				</div>
+				<div class="btn">
+					<button class="tous">Tout</button>
+					<button class="objets">Objets</button>
+					<button class="appart">Appartements</button>
+					<button class="hotel">Hotels & Restaurants</button>
+				</div><br>
+				<div class="gallery">
 
-			</div>
-		</section>
-		<section id="contact">
-			<h2>Contact</h2>
-			<p>Vous avez un projet ? Discutons-en !</p>
-			<form action="#" method="post">
-				<label for="name">Nom</label>
-				<input type="text" name="name" id="name">
-				<label for="email">Email</label>
-				<input type="email" name="email" id="email">
-				<label for="message">Message</label>
-				<textarea name="message" id="message" cols="30" rows="10"></textarea>
-				<input type="submit" value="Envoyer">
-			</form>
-		</section>
+				</div>
+			</section>
+			<section id="contact">
+				<h2>Contact</h2>
+				<p>Vous avez un projet ? Discutons-en !</p>
+				<form action="#" method="post">
+					<label for="name">Nom</label>
+					<input type="text" name="name" id="name">
+					<label for="email">Email</label>
+					<input type="email" name="email" id="email">
+					<label for="message">Message</label>
+					<textarea name="message" id="message" cols="30" rows="10"></textarea>
+					<input type="submit" value="Envoyer">
+				</form>
+			</section>
 
 
 
 
-	</main>
 
-	<footer>
-		<nav>
-			<ul>
-				<li>Mentions Légales</li>
-			</ul>
-		</nav>
-	</footer>
-</div>
+
+		</main>
+
+		<footer>
+			<nav>
+				<ul>
+					<li>Mentions Légales</li>
+				</ul>
+			</nav>
+		</footer>
+	</div>
 </body>
 
 </html>

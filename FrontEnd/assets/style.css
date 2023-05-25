@@ -97,8 +97,12 @@ button{
 	display: flex;
 	gap: 1rem;
 }
-.hidden{
-	visibility: hidden;
+button:hover{
+	color: white;
+	background-color: #1D6154;
+}
+#btn_modif1, #btn_modif2, #myBtn{
+	display: none;
 }
 section {
 	margin: 50px 0
@@ -110,7 +114,7 @@ section {
 	height: 100%;
 	top: 0;
 	background-color: rgba(15, 14, 14, 0.376);
-	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.5);
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.906);
 
 }
 .content-modal img{
@@ -122,17 +126,17 @@ section {
 }
 .content-modal{
 	position: relative;
-	width: 70%;
-	left: 15%;
-	height: 70vh;
+	width: 40%;
+	margin: 0;
+	left: 25%;
+	height: 80vh;
 	border-radius: 25px;
-	top: 15vh;
+	top: 10vh;
 	display: flex;
 	flex-direction: column;
 	padding-bottom: 2rem;
 	padding: 1rem 2rem 1rem 2rem;
 	background-color: white;
-	border-bottom: rgb(193, 190, 190) solid 2px;
 	margin-bottom: 2rem;
 }
 .corps-modal{
@@ -140,8 +144,13 @@ display: grid;
 	grid-template-columns:repeat(5,auto);
 	align-items: center;
 	justify-content: center;
-	overflow: scroll;
-	margin-bottom: 1rem;
+	overflow: auto;
+	margin-bottom: 2rem;
+	padding-bottom: 2rem;
+	border-bottom:  rgb(193, 190, 190) solid 3px;
+}
+.ligne{
+	border-top:  rgb(193, 190, 190) solid 2px;
 }
 .btn-modal{
 	display: flex;
@@ -161,17 +170,22 @@ font-weight: normal;
 	padding: 0.5rem 2.5rem 0.5rem 2.5rem;
 
 }
+.contenu_ajout_photo{
+	display: none;
+	flex-direction: column;
+	height: 100%;
+}
 .modal figure{
 	position: relative;
 }
-.fa-trash-can, .fa-solid{
+.fa-trash-can{
 	position: absolute;
     top: 5px;
 	font-size: 100%;
-    right: 35px;
+    right: 25%;
     color: white;
     background-color: black;
-    padding: 5px;
+    padding: 5%;
     border-radius: 3px;
     cursor: pointer;
 }
@@ -182,7 +196,59 @@ font-weight: normal;
 	font-size: 30px;
 	cursor: pointer;
 }
+.zone-image{
+	width: 100%;
+	height: 30%;
+	background-color: #E8F1F7;
+	margin-bottom: 2rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	
+}
+#visuel{
+	display: none;
+	position: fixed;
+    z-index: 1;
+	width: 11rem;
+	height:11.5rem;
+   
 
+}
+.zone-image input{
+	display: none;
+}
+.zone-image label{
+	background-color: #CBD6DC;
+	color: #306685;
+	border-radius: 50px;
+	padding: 0.5rem;
+	cursor: pointer;
+	font-size: 1rem;
+}
+.zone-image i{
+	font-size: 5rem;
+}
+.titre-categorie{
+	border: none;
+	height: 3rem;
+	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.501);
+	margin: 0.5rem 0 1rem 0;
+
+}
+.valider_photo{
+	display: none;
+	width: 40%;
+	margin: 2rem 20% 1rem 30%;
+	background-color: #A7A7A7;
+	border: none;
+	color: #ffff;
+	
+}
+.fa-arrow-left{
+	display: none;
+}
 h1{
 	display: flex;
 	flex-direction: column;

@@ -67,50 +67,58 @@ if (tok) {
   document.querySelector(".login").innerText = "logOut";
   let btn = document.querySelector(".btn");
   btn.style.display = "none";
+  const btn1 = document.querySelector("#btn_modif1");
+  btn1.style.display = "block";
+  const btn2 = document.querySelector("#btn_modif2");
+  btn2.style.display = "block";
+  const btn3 = document.querySelector("#myBtn");
+  btn3.style.display = "block";
 } else {
   console.log("test non reussi");
-  const btn = document.querySelectorAll(".hidden");
-  console.log(btn);
-   btn.classList.remove("hidden");
+
   const edit = document.getElementById("edition");
   edit.style.display = "none";
 }
 
-// const log = document.querySelector(".login");
-// log.addEventListener("click", function (){
-//   if(tok){
-//   localStorage.removeItem('token');
-//   document.location = '';
-// }
-// else{
-//   document.location = '/FrontEnd/login.html';
-// }
-// } );
+const log = document.querySelector(".login");
+log.addEventListener("click", function () {
+  if (tok) {
+    localStorage.removeItem("token");
+    document.location = "./index.html";
+  } else {
+    document.location.href = "/FrontEnd/login.html";
+  }
+});
 
 // GESTION DE LA MODAL****************
 
 var modal = document.getElementById("myModal");
-const btn_projet = document.getElementById("myBtn");
+const btn1_modal = document.getElementById("myBtn");
+const btn2_modal = document.getElementById("btn_modif1");
+const btn3_modal = document.getElementById("btn_modif2");
 // Contenu de la modal
-for (let i = 0; i < projets.length; i++) {
-  const figure = projets[i];
-  const sectionProjets = document.querySelector(".corps-modal");
-  const projetElement = document.createElement("figure");
-  const imageElement = document.createElement("img");
-  imageElement.src = figure.imageUrl;
-  const nomElement = document.createElement("figcation");
-  nomElement.innerText = "editer";
-  const iconesup = document.createElement("i");
-  iconesup.classList.add("fa-solid", "fa-trash-can");
+function generermodal() {
+  for (let i = 0; i < projets.length; i++) {
+    const figure = projets[i];
+    const sectionProjets = document.querySelector(".corps-modal");
+    const projetElement = document.createElement("figure");
+    const imageElement = document.createElement("img");
+    imageElement.src = figure.imageUrl;
+    const nomElement = document.createElement("figcation");
+    nomElement.innerText = "editer";
+    const iconesup = document.createElement("i");
+    iconesup.classList.add("fa-solid", "fa-trash-can");
 
-  sectionProjets.appendChild(projetElement);
-  projetElement.appendChild(imageElement);
-  projetElement.appendChild(nomElement);
-  projetElement.appendChild(iconesup);
+    sectionProjets.appendChild(projetElement);
+    projetElement.appendChild(imageElement);
+    projetElement.appendChild(nomElement);
+    projetElement.appendChild(iconesup);
+  }
 }
+generermodal();
 const span = document.getElementsByClassName("close")[0];
-// Click sur le bouton de la modal modifier
-btn_projet.addEventListener("click", function () {
+
+function modal_affich() {
   modal.style.display = "block";
   //suppression d'un element
   let btnsupprimer = document.querySelectorAll(".fa-trash-can");
@@ -129,28 +137,88 @@ btn_projet.addEventListener("click", function () {
           Authorization: `Bearer ${monToken}`,
         },
       });
-      if (response.status == 200) {
-
-        alert("suppression reussi")
-        return false;
-        // if HTTP-status is 200-299
-        //alert("Photo supprimé avec succes");
-        // obtenir le corps de réponse (la méthode expliquée ci-dessous)
-      } else {
-        alert("Echec de suppression");
-      }
     });
   }
+}
+// Click sur le bouton de la modal modifier
+btn1_modal.addEventListener("click", function () {
+  modal_affich();
 });
+btn2_modal.addEventListener("click", function () {
+  modal_affich();
+});
+btn3_modal.addEventListener("click", function () {
+  modal_affich();
+});
+
 span.addEventListener("click", function () {
+  document.querySelector(".corps-modal").style.display = "grid";
+  document.querySelector(".contenu_ajout_photo").style.display = "none";
+  document.querySelector(".titre_modal").innerText = "Galerie photo";
+  document.querySelector(".valider_photo").style.display = "none";
+  document.querySelector(".ajoutphoto").style.display = "block";
+  document.querySelector(".sup-gallerie").style.display = "block";
+  document.querySelector(".fa-arrow-left").style.display = "none";
   modal.style.display = "none";
+});
+window.addEventListener("click", function (event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
 });
 
 // GESTION DE LA MODAL DU BOUTON AJOUTER PHOTO
 const btn_ajoutphoto = document.querySelector(".ajoutphoto");
-btn_ajoutphoto.addEventListener("click", function(e){
+btn_ajoutphoto.addEventListener("click", function (e) {
   e.preventDefault();
-  console.log('click reussi');
-  document.querySelector('.corps-modal').innerHTML = "";
+  document.querySelector(".titre_modal").innerText = "Ajout photo";
+  document.querySelector(".corps-modal").style.display = "none";
+  console.log("click reussi");
+  document.querySelector(".contenu_ajout_photo").style.display = "flex";
+  document.querySelector(".valider_photo").style.display = "block";
+  document.querySelector(".ajoutphoto").style.display = "none";
+  document.querySelector(".sup-gallerie").style.display = "none";
+  document.querySelector(".fa-arrow-left").style.display = "block";
+});
 
-})
+const btn_retour = document.querySelector(".fa-sharp");
+btn_retour.addEventListener("click", function () {
+  document.querySelector(".corps-modal").style.display = "grid";
+  document.querySelector(".contenu_ajout_photo").style.display = "none";
+  document.querySelector(".titre_modal").innerText = "Galerie photo";
+  document.querySelector(".valider_photo").style.display = "none";
+  document.querySelector(".ajoutphoto").style.display = "block";
+  document.querySelector(".sup-gallerie").style.display = "block";
+  document.querySelector(".fa-arrow-left").style.display = "none";
+});
+
+/*****ENVOI D'UNE NOUVELLE IMAGE */
+const aff = document.querySelector("#photo-aff");
+const preview = document.querySelector("#visuel");
+aff.onchange = function () {
+  preview.style.display = "block";
+  preview.src = URL.createObjectURL(aff.files[0]);
+};
+const content = document.querySelector(".contenu_ajout_photo");
+// envoi de l'image
+const formulaire = document.querySelector(".valider_photo");
+formulaire.addEventListener("submit", async function (e) {
+  e.preventDefault();
+  const FormData = new FormData();
+  const ajoutTitre = document.querySelector("#titre").value;
+  const ajoutCategorie = document.querySelector("#categorie").value;
+  FormData.append("image", aff.files[0]);
+  FormData.append("title", ajoutTitre);
+  FormData.append("category", ajoutCategorie);
+  console.log("categorie", document.querySelector("#categorie").value);
+  let monToken = localStorage.getItem("token");
+  let respons = await fetch(`http://localhost:5678/api/works/`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${monToken}`,
+    },
+    body: FormData,
+  })
+    .then((res) => res.json())
+    .catch((error) => alert("erreur", +error));
+});
