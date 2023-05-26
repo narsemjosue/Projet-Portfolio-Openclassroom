@@ -202,23 +202,29 @@ aff.onchange = function () {
 const content = document.querySelector(".contenu_ajout_photo");
 // envoi de l'image
 const formulaire = document.querySelector(".valider_photo");
-formulaire.addEventListener("submit", async function (e) {
+content.addEventListener("submit", async function (e) {
   e.preventDefault();
-  const FormData = new FormData();
+  
+  var formData = new FormData();
   const ajoutTitre = document.querySelector("#titre").value;
   const ajoutCategorie = document.querySelector("#categorie").value;
-  FormData.append("image", aff.files[0]);
-  FormData.append("title", ajoutTitre);
-  FormData.append("category", ajoutCategorie);
+  formData.append("image", aff.files[0]);
+  formData.append("title", ajoutTitre);
+  formData.append("category", ajoutCategorie);
   console.log("categorie", document.querySelector("#categorie").value);
-  let monToken = localStorage.getItem("token");
+  let monToken =  window.localStorage.getItem("token");
   let respons = await fetch(`http://localhost:5678/api/works/`, {
-    method: "POST",
+    method:'POST',
     headers: {
-      Authorization: `Bearer ${monToken}`,
+      accept: "*/*",
+      Authorization: `Bearer ${monToken}`
     },
-    body: FormData,
+    body: formData
+  }).then((res)=>{
+    if(res.ok){
+      console.log("Requete reussite")
+    }else{
+      console.log("echec de la requete")
+    }
   })
-    .then((res) => res.json())
-    .catch((error) => alert("erreur", +error));
 });

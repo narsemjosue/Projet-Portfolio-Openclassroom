@@ -66,7 +66,7 @@
 									<i class="fa-sharp fa-solid fa-arrow-left"></i>
 								</nav>
 								<h2 class="titre_modal">Gallerie photo</h2>
-								<form class="contenu_ajout_photo" method="post" enctype="multipart/form-data">
+								<form class="contenu_ajout_photo" action="submit" method="post" enctype="multipart/form-data">
 									<div class="zone-image">
 										<i class="fa-sharp fa-regular fa-image"></i>
 										<label for="photo-aff">+Ajouter photo</label>
@@ -84,7 +84,8 @@
 										<option value="3">Hotel et Restaurant</option>
 									</select>
 									<div class="ligne"></div>
-									<button class="valider_photo">Valider</button>
+									<button class="valider_photo" type="submit">Valider</button>
+									
 								</form>
 								<script>
 								
