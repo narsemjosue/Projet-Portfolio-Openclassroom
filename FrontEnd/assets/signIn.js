@@ -8,22 +8,6 @@ document.querySelector("#btn-login").onclick = (e) => {
       email: emailAddress,
       password: password,
     };
-  
-    //test de validité
-    const emailCheck = document.getElementById("email");
-    const passwordCheck = document.getElementById("password");
-    passwordCheck.reportValidity();
-    emailCheck.reportValidity();
-  
-    // returner false si email ou password est invalide
-    if (
-      emailCheck.checkValidity() === false ||
-      passwordCheck.checkValidity() === false
-    ) {
-      alert("erreur");
-  
-      // envoyer requête si identifiant valide
-    } else {
       fetch("http://localhost:5678/api/users/login", {
         method: "POST",
         headers: {
@@ -48,12 +32,7 @@ document.querySelector("#btn-login").onclick = (e) => {
             validateUser(userLogged);
           }
         })
-        .catch((err) => {
-          alert("erreur 404, problème avec le serveur:" + err);
-        });
-    }
   };
-  
   // Function to validate the logged in user and redirect to the index page
   function validateUser(userLogged) {
     const userId = userLogged.userId;
