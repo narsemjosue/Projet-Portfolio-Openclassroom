@@ -163,7 +163,7 @@ span.addEventListener("click", function () {
 });
 const fenetre = document.querySelector('#myModal')
 fenetre.addEventListener("click", function () {
-    modal.style.display = "none";
+    // modal.style.display = "none";
 });
 
 // GESTION DE LA MODAL DU BOUTON AJOUTER PHOTO
